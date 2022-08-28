@@ -16,7 +16,7 @@ from db_api.routes.delete_anulacoes import router as router_delete
 api = FastAPI(
     title='RegistrosFuncionariosAPI',
     description=descricao,
-    version='0.1.0',
+    version='1.0.0',
     contact={
          "name": "Luís Perna",
          "url": "https://luishperna.com.br/",
