@@ -1,0 +1,1 @@
+# Arquivo criado para interpretar schemas.py como um módulo no python

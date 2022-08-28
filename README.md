@@ -1,1 +1,1 @@
-> :construction: Projeto em construção :construction:
+> :construction: README.md em processo de escrita :construction:
