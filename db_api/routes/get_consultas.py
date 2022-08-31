@@ -1,7 +1,7 @@
 # Importanto APIRouter
 from fastapi import APIRouter
 
-# importando cursor do banco de dados
+# Importando cursor do banco de dados
 from db_config.connection import cursor
 
 # Criando router_get

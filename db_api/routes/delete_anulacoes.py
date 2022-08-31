@@ -4,7 +4,7 @@ from fastapi import APIRouter
 # Criando router_delete
 router = APIRouter()
 
-# importando cursor e conexao com o banco de dados
+# Importando cursor e conexao com o banco de dados
 from db_config.connection import cursor, conexao
 
 # Função para anulação de um registro de um funcionário no banco de dados
