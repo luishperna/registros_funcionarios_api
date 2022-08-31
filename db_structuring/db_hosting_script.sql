@@ -1,13 +1,11 @@
--- DDL(Linguagem de Definição de Dados) - Script para definição das estruturas de dados utilizadas no bd  
+-- DDL(Linguagem de Definição de Dados)
+-- Script para definição das estruturas de dados utilizadas no banco de dados hospedado
 
 -- Desabilitando o modo estrito
-SET GLOBAL sql_mode = '';
+SET sql_mode = '';
 
--- Criando o bd funcionarios
-CREATE DATABASE funcionarios;
-
--- Selecionando o bd funcionarios
-USE funcionarios;
+-- Selecionando o dbfuncionarios
+USE dbfuncionarios;
 
 -- Criando a tabela dados_pessoais
 CREATE TABLE dados_pessoais(
@@ -26,7 +24,7 @@ CREATE TABLE dados_empregados(
   codigo INT NOT NULL UNIQUE,
   cargo VARCHAR(255) NOT NULL,
   data_inicio DATE NOT NULL,
-  data_cancelamento DATE NOT NULL DEFAULT "0000-00-00",
+  data_cancelamento DATE DEFAULT NULL,
   comportamento TEXT,
   PRIMARY KEY(id_empregado)
 );
