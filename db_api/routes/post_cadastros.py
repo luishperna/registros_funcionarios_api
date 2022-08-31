@@ -1,10 +1,13 @@
 # Importanto APIRouter
 from fastapi import APIRouter
 
-# importando classe Funcionario
+# Importando classe Funcionario
 from db_api.schemas.schemas import Funcionario
 
-# importando cursor e conexao com o banco de dados
+# Importando mysql.connector
+import mysql.connector
+
+# Importando cursor e conexao com o banco de dados
 from db_config.connection import cursor, conexao
 
 # Criando router_post
@@ -24,40 +27,34 @@ def cadastrar(funcionario: Funcionario):
         data_cancelamento = funcionario.data_cancelamento
         comportamento = funcionario.comportamento
 
-        desabilitando_autocommit = 'SET autocommit = 0'
-        cursor.execute(desabilitando_autocommit)
-        conexao.commit()
+        # Verificando se o valor é nulo ou uma data e aplicando as correções nas aspas
+        if (data_cancelamento == 'NULL') or (data_cancelamento == 'null'):
+            data_cancelamento = data_cancelamento.replace('"','')
+        else:
+            data_cancelamento = f'"{data_cancelamento}"'
 
-        iniciando_transacao = 'START TRANSACTION;'
-        cursor.execute(iniciando_transacao)
-        conexao.commit()
+        conexao.autocommit = False
 
         inserindo_dados_pessoais = f'INSERT INTO dados_pessoais(\
         codigo, nome, data_nascimento, cpf, email) \
         VALUES({codigo}, "{nome}", "{data_nascimento}", "{cpf}", "{email}");'
         cursor.execute(inserindo_dados_pessoais)
-        conexao.commit()
         
         inserindo_dados_empregados = f'INSERT INTO dados_empregados(\
         codigo, cargo, data_inicio, data_cancelamento, comportamento) \
-        VALUES({codigo}, "{cargo}", "{data_inicio}", "{data_cancelamento}", "{comportamento}");'
+        VALUES({codigo}, "{cargo}", "{data_inicio}", {data_cancelamento}, "{comportamento}");'
         cursor.execute(inserindo_dados_empregados)
-        conexao.commit()
 
-        comitando = 'COMMIT;'
-        cursor.execute(comitando)
-        conexao.commit()
-
-        habilitando_autocommit = 'SET autocommit = 1'
-        cursor.execute(habilitando_autocommit)
         conexao.commit()
         return  {
             'Status': 'Cadastrado realizado com sucesso!',
             'Funcionário(a)': f'{nome}',
             'Código': f'{codigo}'
             }
-    except:
+    except mysql.connector.Error as error:
+        conexao.rollback()
         return {
             'Status': 'Erro ao cadastrar',
-            'Tipo de erro': 'Dados duplicados, faltantes ou incorretos'
+            'Tipo de erro': f'{error}',
+            'Causas': 'Dados duplicados, faltantes ou incorretos'
             }
