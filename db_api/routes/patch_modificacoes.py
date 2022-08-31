@@ -1,10 +1,13 @@
 # Importanto APIRouter
 from fastapi import APIRouter
 
-# importando classe Modificacao
+# Importando classe Modificacao
 from db_api.schemas.schemas import Modificacao
 
-# importando cursor do banco de dados
+# Importando mysql.connector
+import mysql.connector
+
+# Importando cursor do banco de dados
 from db_config.connection import cursor, conexao
 
 # Criando router_patch
@@ -33,8 +36,9 @@ def modificar(modificacao: Modificacao):
                     'Status': f'{codigo} - Modificação realizado com sucesso!',
                     'Atualização': f'Atributo {atributo} setado para {novo_valor}',
                     }
-    except:
+    except mysql.connector.Error as error:
         return {
             'Status': 'Erro ao modificar',
-            'Tipo de erro': 'Dados faltantes ou incorretos'
+            'Tipo de erro': f'{error}',
+            'Causas': 'Dados faltantes ou incorretos'
             }
