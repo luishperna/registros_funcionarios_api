@@ -31,9 +31,9 @@ api = FastAPI(
 api.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentiails=True,
+    allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=[""]
+    allow_headers=["*"],
 )
 
 # Utilizando as rotas
