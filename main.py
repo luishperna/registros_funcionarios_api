@@ -1,6 +1,9 @@
 # Importando FastAPI
 from fastapi import FastAPI
 
+# Importando CORSMiddleware
+from fastapi.middleware.cors import CORSMiddleware
+
 # Importando descrição da API
 from metadata.description_api import descricao
 
@@ -12,6 +15,7 @@ from db_api.routes.post_cadastros import router as router_post
 from db_api.routes.patch_modificacoes import router as router_patch
 from db_api.routes.delete_anulacoes import router as router_delete
 
+
 # Criando API
 api = FastAPI(
     title='RegistrosFuncionariosAPI',
@@ -21,6 +25,15 @@ api = FastAPI(
          "name": "Luís Perna",
          "url": "https://luishperna.com.br/",
     }
+)
+
+# Middleware para liberar CORS
+api.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentiails=True,
+    allow_methods=["*"],
+    allow_headers=[""]
 )
 
 # Utilizando as rotas
