@@ -8,13 +8,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from metadata.description_api import descricao
 
 # Importando rotas
-from db_api.routes.get_api import router as router_home
+from db_api.routes.get_home import router as router_home
 from db_api.routes.get_status import router as router_status
 from db_api.routes.get_consultas import router as router_get
 from db_api.routes.post_cadastros import router as router_post
 from db_api.routes.patch_modificacoes import router as router_patch
 from db_api.routes.delete_anulacoes import router as router_delete
-
 
 # Criando API
 api = FastAPI(
@@ -27,7 +26,8 @@ api = FastAPI(
     }
 )
 
-# Middleware para liberar CORS
+# Liberando CORS (Compartilhamento de Recursos de Origem Cruzada) do navegador
+# Possibilitando a comunicação entre um Front-End com JavaScript e um Back-End externo, no caso a API
 api.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -37,8 +37,8 @@ api.add_middleware(
 )
 
 # Utilizando as rotas
-api.include_router(router=router_home, prefix='/api')
-api.include_router(router=router_status, prefix='/api/status')
+api.include_router(router=router_home, prefix='/')
+api.include_router(router=router_status, prefix='/status')
 api.include_router(router=router_post, prefix='/funcionarios/cadastros')
 api.include_router(router=router_get, prefix='/funcionarios/consultas/{cpf}')
 api.include_router(router=router_patch, prefix='/funcionarios/modificacoes')
