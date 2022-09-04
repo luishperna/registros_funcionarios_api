@@ -37,7 +37,7 @@ api.add_middleware(
 )
 
 # Utilizando as rotas
-api.include_router(router=router_home, prefix='/')
+api.include_router(router=router_home)
 api.include_router(router=router_status, prefix='/status')
 api.include_router(router=router_post, prefix='/funcionarios/cadastros')
 api.include_router(router=router_get, prefix='/funcionarios/consultas/{cpf}')
