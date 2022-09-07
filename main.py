@@ -16,7 +16,7 @@ from db_api.routes.patch_modificacoes import router as router_patch
 from db_api.routes.delete_anulacoes import router as router_delete
 
 # Criando API
-api = FastAPI(
+app = FastAPI(
     title='RegistrosFuncionariosAPI',
     description=descricao,
     version='1.0.0',
@@ -28,7 +28,7 @@ api = FastAPI(
 
 # Liberando CORS (Compartilhamento de Recursos de Origem Cruzada) do navegador
 # Possibilitando a comunicação entre um Front-End com JavaScript e um Back-End externo, no caso a API
-api.add_middleware(
+app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_credentials=True,
@@ -37,9 +37,9 @@ api.add_middleware(
 )
 
 # Utilizando as rotas
-api.include_router(router=router_home)
-api.include_router(router=router_status, prefix='/status')
-api.include_router(router=router_post, prefix='/funcionarios/cadastros')
-api.include_router(router=router_get, prefix='/funcionarios/consultas/{cpf}')
-api.include_router(router=router_patch, prefix='/funcionarios/modificacoes')
-api.include_router(router=router_delete, prefix='/funcionarios/anulacoes/{cpf}')
+app.include_router(router=router_home)
+app.include_router(router=router_status, prefix='/status')
+app.include_router(router=router_post, prefix='/funcionarios/cadastros')
+app.include_router(router=router_get, prefix='/funcionarios/consultas/{cpf}')
+app.include_router(router=router_patch, prefix='/funcionarios/modificacoes')
+app.include_router(router=router_delete, prefix='/funcionarios/anulacoes/{cpf}')

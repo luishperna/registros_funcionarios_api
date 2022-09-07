@@ -52,7 +52,7 @@ O foco da RegistrosFuncionariosApi é apenas para **fins de estudo pessoal** sob
 - Gerenciamento Variáveis de Ambiente: `python-dotenv`
 
 - Hospedagem/Deploy:
-  - API: `Heroku`
+  - API: `Vercel`
   - MySQL: `db4free`
 
 - Editor de Código/IDE: `visual studio code`
