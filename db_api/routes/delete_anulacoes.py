@@ -21,5 +21,5 @@ def anular(cpf:str):
     conexao.commit()
     return {
         "Status": "Anulação realizada com sucesso!",
-        "Anulação": f"Deletado registro com cpf {numero_cpf}",
+        "Anulação": f"Deletado registro com CPF {numero_cpf}",
         }
