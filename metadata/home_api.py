@@ -3,9 +3,11 @@ informacoes_api = {
         "Aplicação": "Web/API",
         "Projeto": "RegistrosFuncionariosApi",
         "Usabilidade": "Operações CRUD de registros de funcionários no banco de dados",
+        "Documentação": "https://registros-funcionarios-api-docs.luishperna.com.br",
         "Rotas": {
-        "/docs": "Documentação gerada pelo FastApi",
         "/": "Método GET - Home da API",
+        "/docs": "Swagger UI da API",
+        "/openapi.json": "OpenAPI da API",
         "/status": "Método GET - Status da API",
         "/funcionarios/cadastros": "Método POST - Cadastrar um registro",
         "/funcionarios/consultas/{cpf}": "Método GET - Consultar um registro",
