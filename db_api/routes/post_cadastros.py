@@ -46,15 +46,15 @@ def cadastrar(funcionario: Funcionario):
         cursor.execute(inserindo_dados_empregados)
 
         conexao.commit()
-        return  {
-            'Status': 'Cadastrado realizado com sucesso!',
-            'Funcionário(a)': f'{nome}',
-            'Código': f'{codigo}'
+        return {
+            "Status": "Cadastrado realizado com sucesso!",
+            "Funcionário(a)": f"{nome}",
+            "Código": f"{codigo}"
             }
     except mysql.connector.Error as error:
         conexao.rollback()
         return {
-            'Status': 'Erro ao cadastrar',
-            'Tipo de erro': f'{error}',
-            'Causas': 'Dados duplicados, faltantes ou incorretos'
+            "Status": "Erro ao cadastrar",
+            "Tipo de erro": f"{error}",
+            "Causas": "Dados duplicados, faltantes ou incorretos"
             }

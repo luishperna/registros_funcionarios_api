@@ -47,6 +47,6 @@ def consultar(cpf:str):
             }
     except:
         return {
-            'Status': 'Erro ao consultar',
-            'Tipo de erro': 'CPF incorreto ou não cadastrado'
+            "Status": "Erro ao consultar",
+            "Tipo de erro": "CPF incorreto ou não cadastrado"
             }

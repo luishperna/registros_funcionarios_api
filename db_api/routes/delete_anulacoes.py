@@ -20,6 +20,6 @@ def anular(cpf:str):
     cursor.execute(anulando_registro)
     conexao.commit()
     return {
-            'Status': 'Anulação realizada com sucesso!',
-            'Anulação': f'Deletado registro com cpf {numero_cpf}',
-            }
+        "Status": "Anulação realizada com sucesso!",
+        "Anulação": f"Deletado registro com cpf {numero_cpf}",
+        }

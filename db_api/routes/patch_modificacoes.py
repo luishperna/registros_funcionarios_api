@@ -23,8 +23,8 @@ def modificar(modificacao: Modificacao):
 
         if atributo == 'codigo':
             return{
-                'Status': 'Erro ao modificar',
-                'Tipo de erro': 'O atributo codigo não pode ser modificado'
+                "Status": "Erro ao modificar",
+                "Tipo de erro": "O atributo codigo não pode ser modificado"
                 }
         else:
             modificando_dados_empregados = f'UPDATE dados_empregados \
@@ -33,12 +33,12 @@ def modificar(modificacao: Modificacao):
             cursor.execute(modificando_dados_empregados)
             conexao.commit()
             return {
-                    'Status': f'{codigo} - Modificação realizado com sucesso!',
-                    'Atualização': f'Atributo {atributo} setado para {novo_valor}',
+                    "Status": f"{codigo} - Modificação realizado com sucesso!",
+                    "Atualização": f"Atributo {atributo} setado para {novo_valor}",
                     }
     except mysql.connector.Error as error:
         return {
-            'Status': 'Erro ao modificar',
-            'Tipo de erro': f'{error}',
-            'Causas': 'Dados faltantes ou incorretos'
+            "Status": "Erro ao modificar",
+            "Tipo de erro": f"{error}",
+            "Causas": "Dados faltantes ou incorretos"
             }
