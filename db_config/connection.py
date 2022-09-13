@@ -11,7 +11,8 @@ conexao = mysql.connector.connect(
     host=getenv('HOST'),
     user=getenv('USER'),
     password=getenv('PASSAWORD'),
-    database=getenv('DATABASE')
+    database=getenv('DATABASE'),
+    port=getenv('PORT')
 )
 
 # Executando a conexão no banco de dados

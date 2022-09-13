@@ -102,7 +102,7 @@ Além disso, a API e o banco de dados estão sujeitos a paradas ou desligamento 
 
 - Hospedagem/Deploy:
   - API: `Vercel`
-  - MySQL: `db4free`
+  - MySQL: `TiDB Cloud`
 
 - Editor de Código/IDE: `visual studio code`
 
