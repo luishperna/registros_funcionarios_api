@@ -1,7 +1,7 @@
 # Informações para exibição na rota home da API
 informacoes_api = {
         "Aplicação": "Web/API",
-        "Projeto": "RegistrosFuncionariosApi",
+        "Projeto": "RegistrosFuncionariosAPI",
         "Usabilidade": "Operações CRUD de registros de funcionários no banco de dados",
         "Documentação": "https://registros-funcionarios-api-docs.luishperna.com.br",
         "Rotas": {

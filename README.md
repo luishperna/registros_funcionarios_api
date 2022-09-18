@@ -1,4 +1,4 @@
-<h1 align="center">RegistrosFuncionariosApi</h1>
+<h1 align="center">RegistrosFuncionariosAPI</h1>
 
 <p align="center">
 <img src="https://img.shields.io/badge/operações-crud-539cf2?style=for-the-badge"/>
@@ -19,7 +19,7 @@ Esta Interface de Programação de Aplicação (API) proporciona as 4 principais
 
 ## :blue_book: Documentação
 
-Acesse a **documentação da RegistrosFuncionariosApi** para saber mais sobre a API e como utilizá-la.
+Acesse a **documentação da RegistrosFuncionariosAPI** para saber mais sobre a API e como utilizá-la.
 
 Disponível em: [https://registros-funcionarios-api-docs.luishperna.com.br](https://registros-funcionarios-api-docs.luishperna.com.br)
 
@@ -72,7 +72,7 @@ A RegistrosFuncionariosAPI utiliza do formato `JSON` para realizar as comunicaç
 
 A API foi desenvolvida com a finalidade de simular uma aplicabilidade em uma empresa fictícia, sendo assim, não apresentando usabilidade real.
 
-O foco da RegistrosFuncionariosApi é apenas para fins de estudo pessoal sobre Interface de Programação de Aplicações.
+O foco da RegistrosFuncionariosAPI é apenas para fins de estudo pessoal sobre Interface de Programação de Aplicações.
 
 ---
 
